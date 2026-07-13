@@ -77,7 +77,7 @@ nav {
 /* Alignment rule: .hero gets the SAME 3rem side padding as .section, and .hero-inner
    mirrors .wrap (max-width 1160, centered, no extra padding) so hero copy lines up
    with the section content underneath it at every viewport width. */
-.hero { position: relative; min-height: clamp(560px, 78vh, 760px); display: flex; align-items: center; overflow: hidden; background: var(--forest-dark); padding: 0 3rem; }
+.hero { position: relative; min-height: clamp(480px, 62vh, 620px); display: flex; align-items: center; overflow: hidden; background: var(--forest-dark); padding: 0 3rem; }
 .hero-video {
   position: absolute;
   inset: 0;
