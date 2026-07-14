@@ -241,7 +241,14 @@ async function loadProperties(opts = {}) {
 
     // Auto-populate community dropdown from real Rentec data
     if (!communityFilter) {
-      const comms = [...new Set((data.properties||[]).map(p=>p.community||p.group).filter(Boolean))];
+      // Normalize and deduplicate community names
+      const commsMap = new Map();
+      (data.properties||[]).forEach(p => {
+        const name = (p.community||p.group||'').trim();
+        if (name) commsMap.set(name.toLowerCase(), name);
+      });
+      const comms = [...commsMap.values()];
+      
       if (comms.length) {
         const sel = document.getElementById('fCommunity');
         if (sel) {
